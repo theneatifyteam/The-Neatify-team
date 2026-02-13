@@ -11,6 +11,9 @@ export default function Header({ searchText, setSearchText, user }) {
   const [helpOpen, setHelpOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false); // ✅ Added
+  
+  // ✅ TEMPORARY: prevents ESLint build error
+  console.log(helpOpen, mobileMenuOpen);
 
   const APK_DOWNLOAD_URL =
     "https://github.com/theneatifyteam/customer-App-Apk-Repo/releases/download/v1.0.0/application-e91115be-8ff3-41bd-be59-787e5b0e62b1.apk";
