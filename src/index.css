@@ -1,0 +1,140 @@
+/* ================= AUTH PAGES ================= */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f6fa;
+  padding: 20px; /* ✅ prevents touching screen edges */
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 380px; /* ✅ keeps desktop size */
+  background: #fff;
+  padding: 30px 25px;
+  border-radius: 14px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-title {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.auth-input:focus {
+  outline: none;
+  border-color: #000;
+}
+
+.auth-button {
+  width: 100%;
+  padding: 12px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.auth-button:hover {
+  background: #222;
+}
+
+.auth-link {
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.auth-link span {
+  font-weight: 600;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}
+
+/* Google login button */
+.google-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.google-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* ================= PROFILE PAGE PADDING FIX ================= */
+.profile-details p {
+  padding-left: 4px;
+}
+
+.profile-details strong {
+  padding-right: 2px;
+}
+
+/* ================= GLOBAL FIX ================= */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+#root {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+/* ================= MOBILE IMPROVEMENTS ================= */
+@media (max-width: 480px) {
+
+  .auth-page {
+    padding: 16px;
+    align-items: flex-start; /* better mobile alignment */
+  }
+
+  .auth-card {
+    padding: 24px 18px;
+    border-radius: 12px;
+  }
+
+  .auth-title {
+    font-size: 20px;
+  }
+
+  .auth-button {
+    font-size: 15px;
+  }
+
+  .auth-link {
+    font-size: 13px;
+  }
+}

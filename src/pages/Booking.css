@@ -1,0 +1,508 @@
+.booking-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 48px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Back */
+.back-arrow {
+  background: none;
+  border: 1px solid #ddd;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+/* LAYOUT */
+.booking-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 56px;
+  align-items: flex-start;
+}
+
+/* ✅ MOBILE BOOKING LAYOUT */
+@media (max-width: 900px) {
+  .booking-layout {
+    grid-template-columns: 1fr;
+    /* Stack columns */
+    gap: 32px;
+  }
+
+  .booking-container {
+    padding: 16px;
+    /* Reduce padding */
+  }
+
+  /* Make calendar scrollable if needed or fit width */
+  .calendar-grid {
+    gap: 8px;
+    /* Tighter gap */
+  }
+
+  .date,
+  .empty {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* LEFT */
+.calendar-section h1 {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* DROPDOWNS */
+.row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.row select {
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* CALENDAR */
+.scheduler-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 40px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 48px);
+  grid-auto-rows: 48px;
+  gap: 12px;
+}
+
+.day-label {
+  height: 28px;
+  font-size: 13px;
+  color: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty {
+  width: 48px;
+  height: 48px;
+}
+
+.date {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: #f3f3f3;
+  border: 1px solid #e4e4e4;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.date.selected {
+  background: #0b66ff;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* TIME */
+.time-section h4 {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.time-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.time-box {
+  padding: 10px 0;
+  border-radius: 8px;
+  background: #f3f3f3;
+  border: 1px solid #e4e4e4;
+}
+
+.time-box.selected-time {
+  background: #0b66ff;
+  color: #fff;
+}
+
+.disabled-time {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+/* ================= RIGHT SUMMARY ================= */
+
+.summary {
+  border-left: 1px solid #eee;
+  padding-left: 20px;
+}
+
+.summary h3 {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+/* ✅ SINGLE SERVICE CARD */
+.services-wrapper {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 14px;
+  background: #fff;
+}
+
+.service-item {
+  padding: 6px 0;
+}
+
+.service-item:not(:last-child) {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 6px;
+}
+
+.service-item strong {
+  font-size: 13px;
+}
+
+.service-item p {
+  font-size: 12px;
+  margin: 2px 0;
+  color: #666;
+}
+
+/* TOTAL */
+/* 🔹 Make Total Duration & Total smaller */
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  /* ⬅️ smaller font */
+  font-weight: 500;
+  /* ⬅️ lighter */
+  margin-top: 10px;
+}
+
+.total-row strong {
+  font-size: 15px;
+  /* ⬅️ same size as label */
+  font-weight: 600;
+}
+
+
+/* NEXT BUTTON */
+.next-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  margin-top: 16px;
+  background: #0b66ff;
+  color: #fff;
+  border: none;
+}
+
+.booking-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 48px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Back */
+.back-arrow {
+  background: none;
+  border: 1px solid #ddd;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+/* LAYOUT */
+.booking-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 56px;
+  align-items: flex-start;
+}
+
+/* LEFT */
+.calendar-section h1 {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* DROPDOWNS */
+.row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.row select {
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* CALENDAR */
+.scheduler-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 40px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 48px);
+  grid-auto-rows: 48px;
+  gap: 12px;
+}
+
+.day-label {
+  height: 28px;
+  font-size: 13px;
+  color: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty {
+  width: 48px;
+  height: 48px;
+}
+
+.date {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: #f3f3f3;
+  border: 1px solid #e4e4e4;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.date.selected {
+  background: #0b66ff;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* TIME */
+.time-section h4 {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.time-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.time-box {
+  padding: 10px 0;
+  border-radius: 8px;
+  background: #f3f3f3;
+  border: 1px solid #e4e4e4;
+}
+
+.time-box.selected-time {
+  background: #0b66ff;
+  color: #fff;
+}
+
+.disabled-time {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+/* ================= RIGHT SUMMARY ================= */
+
+.summary {
+  border-left: 1px solid #eee;
+  padding-left: 20px;
+}
+
+.summary h3 {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+/* ✅ SINGLE SERVICE CARD */
+.services-wrapper {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 14px;
+  background: #fff;
+}
+
+.service-item {
+  padding: 6px 0;
+}
+
+.service-item:not(:last-child) {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 6px;
+}
+
+.service-item strong {
+  font-size: 13px;
+}
+
+.service-item p {
+  font-size: 12px;
+  margin: 2px 0;
+  color: #666;
+}
+
+/* TOTAL */
+/* 🔹 Make Total Duration & Total smaller */
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  /* ⬅️ smaller font */
+  font-weight: 500;
+  /* ⬅️ lighter */
+  margin-top: 10px;
+}
+
+.total-row strong {
+  font-size: 15px;
+  /* ⬅️ same size as label */
+  font-weight: 600;
+}
+
+
+/* NEXT BUTTON */
+.next-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  margin-top: 16px;
+  background: #0b66ff;
+  color: #fff;
+  border: none;
+}
+
+/* Strike original price */
+.mrp {
+  text-decoration: line-through;
+  color: #9ca3af;
+  /* soft grey */
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* Discounted price */
+.discounted-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  /* near-black */
+  margin-top: 2px;
+}
+
+/* Offer badge */
+.offer-badge {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 4px 8px;
+  background-color: #e6f4ea;
+  color: #1e7f3f;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+/* Service card spacing polish */
+.service-item p {
+  margin: 2px 0;
+}
+
+/* Total section alignment */
+.total-row .mrp {
+  margin-top: 2px;
+}
+
+.total-row .discounted-price {
+  font-size: 20px;
+}
+
+/* ===== TOTAL ROW ALIGNMENT FIX ===== */
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 12px;
+}
+
+.total-row>div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  /* RIGHT aligned prices */
+  gap: 4px;
+}
+
+/* Striked original price */
+.total-row .mrp {
+  font-size: 14px;
+  color: #9ca3af;
+  text-decoration: line-through;
+}
+
+/* Final price */
+.total-row strong {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* Offer badge */
+.total-row .offer-badge {
+  margin-top: 4px;
+}
+
+.policy-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.policy-close {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+}

@@ -1,0 +1,440 @@
+/* PAGE TITLE */
+.page-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 24px 16px;
+}
+
+.page {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* GRID */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 16px;
+}
+
+/* CARD */
+.service-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* IMAGE */
+.service-card img {
+  width: 100%;
+  max-width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+/* BODY */
+.service-body {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* TITLE */
+.service-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* META */
+.service-meta {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* PRICE */
+.service-price {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* BUTTON */
+.view-service-btn {
+  margin-top: auto;
+  background: #f5c518;
+  color: #000;
+  border: none;
+  border-radius: 22px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.view-service-btn:hover {
+  opacity: 0.9;
+}
+
+/* ================= HERO ================= */
+.hero-container {
+  padding: 16px 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hero {
+  width: 100%;
+  height: 480px;
+  /* Fixed height for rectangular look */
+  border-radius: 20px;
+  /* Rounded corners for the "box" look */
+  overflow: hidden;
+  position: relative;
+  background-size: cover;
+  /* Fill the box */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #f3f4f6;
+  /* Neutral placeholder color */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  transition: background-image 0.8s ease-in-out;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.4) 100%);
+  pointer-events: none;
+}
+
+/* ================= HERO DOTS ================= */
+.hero-dots {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 8px 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dot.active {
+  background-color: #f4c430;
+  width: 24px;
+  /* Pill shape for active dot */
+  border-radius: 4px;
+}
+
+.dot:hover:not(.active) {
+  background-color: rgba(255, 255, 255, 0.8);
+  transform: scale(1.2);
+}
+
+/* ================= PAGE WRAPPER SPACING ================= */
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 80px;
+  /* space before footer */
+}
+
+/* ================= SERVICES GRID ================= */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  /* ⬅️ increased gap between cards */
+  padding: 24px 16px 64px;
+  /* ⬅️ bottom space before footer */
+}
+
+/* ================= SERVICE CARD ================= */
+.service-card {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* ================= IMAGE ================= */
+.service-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+/* ================= BODY ================= */
+.service-body {
+  padding: 22px 20px 24px;
+  /* ⬅️ more inner spacing */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 10px;
+  /* ⬅️ vertical spacing between elements */
+}
+
+/* ================= TITLE ================= */
+.service-title {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* ================= META ================= */
+.service-meta {
+  font-size: 14px;
+  color: #777;
+}
+
+/* ================= PRICE ================= */
+.service-price {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+/* ================= BUTTON ================= */
+.view-service-btn {
+  margin-top: auto;
+  background: #f5c518;
+  color: #000;
+  border: none;
+  border-radius: 24px;
+  padding: 12px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.view-service-btn:hover {
+  opacity: 0.9;
+}
+
+/* ================= FOOTER SPACING ================= */
+footer {
+  margin-top: 80px;
+  /* ⬅️ clear gap from cards */
+  padding: 48px 16px;
+  /* ⬅️ comfortable footer padding */
+  background: #0b1320;
+}
+
+footer .footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 24px;
+  /* ⬅️ space between footer sections */
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  footer {
+    margin-top: 64px;
+  }
+
+  /* ✅ MOBILE HERO HEIGHT */
+  .hero {
+    height: 180px;
+  }
+}
+
+/* Force Git Update: Mobile UI Refresh */
+
+/* ===== Section Subheading (Bathroom, Kitchen, etc.) ===== */
+.services-section-title,
+.section-title,
+.category-title {
+  margin-left: 24px;
+  /* ✅ LEFT GAP */
+  margin-bottom: 18px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #111827;
+  /* rich dark */
+  letter-spacing: 0.4px;
+  position: relative;
+}
+
+/* Accent bar on the left */
+.services-section-title::before,
+.section-title::before,
+.category-title::before {
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 60%;
+  background-color: #f4c430;
+  /* brand yellow */
+  border-radius: 3px;
+}
+/* ================= GO UP BUTTON – BELOW CARDS ================= */
+.services-go-up-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 48px 0 32px;
+}
+
+.services-go-up {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 14px 28px;
+  border-radius: 30px;
+
+  background: #f4c430;
+  color: #020617;
+
+  border: none;
+  cursor: pointer;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.services-go-up:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+}
+
+.services-go-up svg {
+  font-size: 18px;
+}
+
+/* MOBILE */
+@media (max-width: 640px) {
+  .services-go-up {
+    padding: 12px 22px;
+    font-size: 14px;
+  }
+}
+/* ================= MOBILE TABS FIX ================= */
+
+/* Container for tabs */
+.service-tabs,
+.category-tabs,
+.tabs {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 12px 16px;
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar (Chrome) */
+.service-tabs::-webkit-scrollbar,
+.category-tabs::-webkit-scrollbar,
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+/* Individual tab */
+.service-tab,
+.category-tab,
+.tab-item {
+  flex: 0 0 auto;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  cursor: pointer;
+  padding-bottom: 6px;
+  position: relative;
+}
+
+/* Active tab underline */
+.service-tab.active,
+.category-tab.active,
+.tab-item.active {
+  color: #000;
+  font-weight: 600;
+}
+
+.service-tab.active::after,
+.category-tab.active::after,
+.tab-item.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #f4c430;
+  border-radius: 2px;
+}
+/* ================= FIX MOBILE TABS SCROLL ================= */
+
+.service-tabs,
+.category-tabs,
+.tabs {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 12px 16px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar */
+.service-tabs::-webkit-scrollbar,
+.category-tabs::-webkit-scrollbar,
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.service-tab,
+.category-tab,
+.tab-item {
+  flex: 0 0 auto;
+}

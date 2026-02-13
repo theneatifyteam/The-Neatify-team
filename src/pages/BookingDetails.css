@@ -1,0 +1,641 @@
+/* ================= CONTAINER ================= */
+
+.booking-details-container {
+  max-width: 750px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+
+/* ================= DETAILS CARD ================= */
+
+.details-card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+/* ================= TEXT ================= */
+
+.details-card p {
+  margin: 6px 0;
+  color: #374151;
+  font-size: 14px;
+}
+
+.details-card strong {
+  color: #111827;
+}
+
+/* ================= DIVIDER ================= */
+
+.details-card hr {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 20px 0;
+}
+
+/* ================= SERVICES ================= */
+
+.details-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.service-box {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 12px;
+  background-color: #fafafa;
+}
+
+.service-box p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+/* ================= BACK BUTTON ================= */
+
+.back-link {
+  margin-top: 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #2563eb;
+  /* nice link blue */
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* ================= TOP LEFT BACK BUTTON ================= */
+
+.back-btn.top-left {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: none;
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: #000;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.back-btn.top-left:hover {
+  text-decoration: underline;
+}
+
+/* Ensure container can position child */
+.booking-details-container {
+  position: relative;
+}
+
+
+/* ================= STATES ================= */
+
+.empty,
+.loading {
+  text-align: center;
+  margin-top: 60px;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+/* ================= PAGE WRAPPER FOR TOP BACK BUTTON ================= */
+
+.booking-details-wrapper {
+  position: relative;
+  max-width: 750px;
+  margin: 40px auto;
+  padding-top: 48px;
+  /* space above heading */
+}
+
+/* ================= SCHEDULER STYLE BACK BUTTON ================= */
+
+.back-arrow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #111827;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.back-arrow:hover {
+  background: #f9fafb;
+}
+
+/* ================= STATUS PILL (RIGHT SIDE) ================= */
+
+.booking-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* COMMON STATUS STYLE */
+.status-pill {
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+
+/* COMPLETED → GREEN */
+.status-completed {
+  background-color: #dcfce7;
+  /* light green */
+  color: #166534;
+  /* dark green text */
+}
+
+/* PENDING → YELLOW */
+.status-pending {
+  background-color: #fef3c7;
+  /* light yellow */
+  color: #92400e;
+  /* dark yellow/brown text */
+}
+
+/* ================= SECTION HEADINGS ================= */
+
+.section {
+  margin-top: 22px;
+  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* ================= CARD ================= */
+
+.card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  background: #ffffff;
+}
+
+/* ================= SERVICE ROW ================= */
+
+.service-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.service-row p {
+  margin: 2px 0;
+  font-size: 14px;
+}
+
+/* ================= ROW ================= */
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ================= STAFF ASSIGNMENT ================= */
+
+.pending-text {
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.assigned {
+  color: #16a34a;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+/* ================= OTP ================= */
+
+.otp-container {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.otp-box {
+  flex: 1;
+  background-color: #fef3c7;
+  border: 2px solid #fbbf24;
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+}
+
+.otp-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #92400e;
+  margin-bottom: 6px;
+}
+
+.otp-code {
+  font-size: 22px;
+  font-weight: 800;
+  color: #78350f;
+  letter-spacing: 2px;
+}
+
+/* ================= ACTIONS CONTAINER ================= */
+
+.actions-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.cancel-btn,
+.back-btn {
+  width: 100%;
+  max-width: 240px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+}
+
+.cancel-btn {
+  background-color: #ef4444;
+  color: #ffffff;
+}
+
+.back-btn {
+  background-color: #f4c430;
+  color: #111827;
+  box-shadow: 0 4px 12px rgba(244, 196, 48, 0.3);
+}
+
+.cancel-btn:hover {
+  background-color: #dc2626;
+}
+
+.back-btn:hover {
+  background-color: #eab308;
+  color: #000;
+}
+
+.cancel-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ================= CANCELLED STATE ================= */
+
+.cancelled-box {
+  margin-top: 24px;
+  padding: 16px;
+  border-radius: 12px;
+  background-color: #f1f5f9;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ================= MODAL ================= */
+
+.modal-overlay,
+.modal-overlay * {
+  box-sizing: border-box;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal {
+  width: 100%;
+  max-width: 460px;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 40px 32px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
+  position: relative;
+  animation: modalSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cancel-modal {
+  text-align: center;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #f1f5f9;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 22px;
+}
+
+.modal-close-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+  transform: rotate(90deg);
+}
+
+.modal-icon {
+  font-size: 56px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.warning-icon {
+  color: #ef4444;
+}
+
+.modal h3 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 12px;
+  letter-spacing: -0.6px;
+}
+
+.modal-subtitle {
+  font-size: 16px;
+  color: #64748b;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 32px;
+  width: 100%;
+}
+
+.modal-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 10px;
+  padding-left: 2px;
+}
+
+.modal-textarea {
+  width: 100%;
+  height: 120px;
+  resize: none;
+  border-radius: 16px;
+  border: 1.5px solid #e2e8f0;
+  padding: 18px;
+  font-size: 15px;
+  font-family: inherit;
+  text-align: left;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #fdfdfd;
+  line-height: 1.6;
+  display: block;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
+  color: #1e293b;
+  margin: 0;
+}
+
+.modal-textarea::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+  text-align: left;
+}
+
+.modal-textarea:focus {
+  outline: none;
+  border-color: #f87171;
+  background: #ffffff;
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.02),
+    0 0 0 4px rgba(239, 68, 68, 0.1);
+  transform: translateY(-1px);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.modal-actions button {
+  flex: 1;
+  padding: 16px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.secondary-btn {
+  background: #f1f5f9;
+  color: #475569;
+  border: none;
+}
+
+.secondary-btn:hover {
+  background: #e2e8f0;
+  color: #1e293b;
+  transform: translateY(-1px);
+}
+
+.danger-btn {
+  background: #ef4444;
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 6px 16px rgba(239, 68, 68, 0.25);
+}
+
+.danger-btn:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(239, 68, 68, 0.35);
+}
+
+.danger-btn:active {
+  transform: translateY(0);
+}
+
+.danger-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.back-btn {
+  margin-top: 14px;
+  padding: 8px 16px;
+  background-color: #ffffff;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Hover */
+.back-btn:hover {
+  background-color: #f9fafb;
+  border-color: #d1d5db;
+  color: #111827;
+}
+
+/* Active */
+.back-btn:active {
+  transform: translateY(1px);
+}
+
+/* Focus (keyboard accessibility) */
+.back-btn:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .back-btn {
+    width: auto;
+    padding: 10px 18px;
+    font-size: 15px;
+  }
+}
+
+/* ================= VISUAL POLISH (NON-BREAKING) ================= */
+
+/* Soft page background */
+body {
+  background-color: #f8fafc;
+}
+
+/* Improve main container look */
+.booking-details-container {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* Better spacing between cards */
+.card {
+  margin-bottom: 14px;
+}
+
+/* Section breathing room */
+.section {
+  margin-top: 26px;
+}
+
+/* Make title feel premium */
+.booking-details-container h2 {
+  letter-spacing: -0.3px;
+}
+
+/* Softer card appearance */
+.card,
+.details-card {
+  border-color: #e6e9ef;
+}
+
+
+
+/* Improved modal smoothness - handled by animations above */
+
+
+/* Mobile polish */
+@media (max-width: 768px) {
+  .booking-details-container {
+    padding: 20px;
+    margin: 20px auto;
+  }
+}
+
+
+
+.back-btn:active {
+  transform: translateY(1px);
+}
+
+.back-btn:focus-visible {
+  outline: 2px solid #facc15;
+  outline-offset: 2px;
+}

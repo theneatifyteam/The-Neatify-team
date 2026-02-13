@@ -1,0 +1,169 @@
+/* WRAPPER */
+.download-wrapper {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 120px 16px 180px;
+  background: radial-gradient(
+    circle at top,
+    #fff7e6,
+    #ffffff 60%
+  );
+}
+
+/* FLOATING GLOW */
+.download-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(
+    circle,
+    rgba(244, 180, 0, 0.25),
+    transparent 70%
+  );
+  top: -180px;
+  right: -180px;
+  filter: blur(80px);
+}
+
+/* CARD */
+.download-card {
+  background: #ffffff;
+  padding: 56px 64px;
+  border-radius: 22px;
+  text-align: center;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.08),
+    0 8px 20px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 1;
+  max-width: 520px;
+  width: 100%;
+  animation: floatUp 0.8s ease forwards;
+}
+
+/* TITLE */
+.download-card h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* SUBTITLE */
+.subtitle {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 32px;
+}
+
+/* COMING SOON BUTTON */
+.playstore-btn {
+  background: linear-gradient(135deg, #f4b400, #ffcc33);
+  color: #000;
+  border: none;
+  padding: 15px 36px;
+  border-radius: 40px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: not-allowed;
+  margin-bottom: 28px;
+  box-shadow: 0 10px 24px rgba(244, 180, 0, 0.35);
+}
+
+/* STORE LIST */
+.store-list {
+  display: flex;
+  justify-content: center;
+  gap: 42px;
+  margin-bottom: 24px;
+}
+
+/* STORE ITEM */
+.store-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* ICONS */
+.store-item img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.store-item:hover {
+  color: #f4b400;
+  transform: translateY(-2px);
+}
+
+.store-item:hover img {
+  transform: scale(1.25);
+}
+
+/* API TEXT */
+.api-text {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+/* API LINK */
+.api-link {
+  color: #f4b400;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+}
+
+.api-link::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: #f4b400;
+  left: 0;
+  bottom: -4px;
+  transition: width 0.3s ease;
+}
+
+.api-link:hover::after {
+  width: 100%;
+}
+
+/* ANIMATIONS */
+@keyframes floatUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .download-card {
+    padding: 40px 24px;
+  }
+
+  .download-card h2 {
+    font-size: 26px;
+  }
+
+  .store-list {
+    gap: 28px;
+  }
+}

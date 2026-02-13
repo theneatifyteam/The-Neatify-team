@@ -1,0 +1,349 @@
+/* ================= ROOT ================= */
+.payment-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 42px 24px;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  color: #0f172a;
+  background: #fafafa;
+}
+
+.page-title {
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 34px;
+  letter-spacing: -0.02em;
+}
+
+/* ================= MAIN LAYOUT ================= */
+.main-row {
+  display: flex;
+  gap: 64px;
+  align-items: flex-start;
+  /* ✅ keeps columns parallel */
+}
+
+/* ================= LEFT ================= */
+.left {
+  flex: 2;
+}
+
+.left input,
+.left textarea {
+  width: 100%;
+  padding: 15px 18px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  margin-bottom: 18px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.left input::placeholder,
+.left textarea::placeholder {
+  color: #9ca3af;
+}
+
+.left input:focus,
+.left textarea:focus {
+  outline: none;
+  border-color: #f4c430;
+  box-shadow: 0 0 0 4px rgba(244, 196, 48, 0.25);
+}
+
+.left textarea {
+  height: 120px;
+  resize: none;
+}
+
+/* ================= RIGHT ================= */
+.right {
+  flex: 1;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 0;
+  /* ✅ KEY FIX: aligns with booking form */
+}
+
+/* ================= SUMMARY CARD ================= */
+.summary-card {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 22px 22px 24px;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.08),
+    0 1px 0 rgba(0, 0, 0, 0.04);
+  border: 1px solid #f1f5f9;
+}
+
+/* ================= SECTION TITLE ================= */
+.section-title {
+  font-size: 17px;
+  font-weight: 900;
+  margin-bottom: 16px;
+  margin-top: 6px;
+  /* subtle visual tuning */
+}
+
+/* ================= SERVICE DETAILS ================= */
+.services-wrapper {
+  border-radius: 16px;
+  padding: 16px 18px;
+  background: linear-gradient(180deg, #ffffff, #fafafa);
+  border: 1px solid #e5e7eb;
+}
+
+/* Grid-based alignment */
+.service-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 12px;
+  row-gap: 4px;
+  padding: 14px 0;
+}
+
+.service-item:not(:last-child) {
+  border-bottom: 1px dashed #e5e7eb;
+}
+
+.service-item strong {
+  grid-column: 1 / 2;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.service-item p {
+  grid-column: 1 / 2;
+  font-size: 12.5px;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ================= TOTAL ================= */
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin-top: 16px;
+}
+
+.payment-page {
+  padding: 40px 20px;
+  background-color: #f9fafb;
+  min-height: 100vh;
+}
+
+@media (max-width: 640px) {
+  .payment-page {
+    padding: 20px 16px;
+  }
+
+  .payment-container {
+    padding: 20px;
+  }
+}
+
+.total-row:last-of-type {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.total-row span {
+  color: #374151;
+  font-weight: 600;
+}
+
+.total-row strong {
+  font-size: 16px;
+  font-weight: 900;
+}
+
+/* ================= POLICY CHECKBOX ================= */
+.summary-bottom {
+  margin-top: 18px;
+}
+
+.summary-bottom label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.summary-bottom input[type="checkbox"] {
+  transform: scale(1.25);
+  margin-top: 2px;
+}
+
+/* ================= POLICY LINK ================= */
+.policy-link {
+  color: #f4c430;
+  font-weight: 800;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ================= BUTTON ================= */
+.primary-btn,
+.next-btn {
+  width: 100%;
+  height: 56px;
+  margin-top: 20px;
+  border-radius: 16px;
+  border: none;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  color: #000;
+  background: linear-gradient(180deg, #f7d84a, #f4c430);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.primary-btn:hover:not(:disabled),
+.next-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(244, 196, 48, 0.45);
+}
+
+.primary-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.primary-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .main-row {
+    flex-direction: column;
+  }
+
+  .right {
+    max-width: 100%;
+    padding-top: 24px;
+  }
+
+  .summary-card {
+    position: sticky;
+    bottom: 0;
+    border-radius: 20px 20px 0 0;
+  }
+}
+
+/* ================= POLICY MODAL ================= */
+.policy-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.policy-modal {
+  background: #ffffff;
+  width: 94%;
+  max-width: 560px;
+  max-height: 85vh;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+}
+
+.policy-header {
+  padding: 24px 28px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.policy-header h2 {
+  font-size: 24px;
+  font-weight: 900;
+  margin: 0;
+}
+
+.policy-subtitle {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.policy-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.policy-body {
+  padding: 22px 28px;
+  overflow-y: auto;
+}
+
+.policy-body ul {
+  padding-left: 22px;
+}
+
+.policy-body li {
+  font-size: 15px;
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+
+.policy-footer {
+  padding: 20px 28px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: center;
+}
+
+.policy-btn {
+  background: linear-gradient(180deg, #f7d84a, #f4c430);
+  border-radius: 16px;
+  border: none;
+  padding: 14px 44px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+/* Offer Badge Styles copied from Booking.css */
+.mrp {
+  text-decoration: line-through;
+  color: #9ca3af;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.offer-badge {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 4px 8px;
+  background-color: #e6f4ea;
+  color: #1e7f3f;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+.total-row .mrp {
+  font-size: 14px;
+  color: #9ca3af;
+  text-decoration: line-through;
+}
+
+.total-row .offer-badge {
+  margin-top: 4px;
+}
