@@ -1,59 +1,61 @@
 .tabs-wrapper {
-  border-bottom: 1px solid #e5e7eb;
-  padding: 0 40px;
-  /* Side gaps */
+  padding: 12px 0;
   background: #fff;
+  position: sticky;
+  top: 70px;
+  z-index: 100;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .tabs-container {
   display: flex;
   justify-content: center;
-  /* Center tabs */
   align-items: center;
-  gap: clamp(16px, 4vw, 48px);
-  /* Equal, responsive distance */
+  gap: 32px;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   overflow-x: auto;
   white-space: nowrap;
-
   scrollbar-width: none;
-  /* Firefox */
+  padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+  .tabs-container {
+    justify-content: flex-start;
+    gap: 24px;
+    padding: 0 16px;
+  }
 }
 
 .tabs-container::-webkit-scrollbar {
   display: none;
-  /* Chrome / Safari */
 }
 
 .tab-item {
-  background: none;
-  border: none;
-  padding: 16px 4px;
+  padding: 12px 2px;
   cursor: pointer;
-
-  color: #6b7280;
-  /* Neutral text */
+  color: #888;
   font-weight: 500;
-  font-size: 15px;
-  border-bottom: 3px solid transparent;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  letter-spacing: 0.3px;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  transition: all 0.2s ease;
+  border-bottom: 2px solid transparent;
+  user-select: none;
 }
 
 .tab-item:hover {
-  color: #111827;
+  color: #333;
 }
 
 .tab-item.active {
-  color: #111827;
+  color: #000;
   font-weight: 600;
-  border-bottom: 3px solid #f4c430;
-  /* Theme yellow */
+  border-bottom: 2px solid #f4c430;
 }
 
+/* Hide the old segmented control styles if any remained */
 .category-tabs {
-  margin-top: 0;
-  padding-top: 8px;
+  margin: 0;
 }
