@@ -3,6 +3,7 @@ import { useState, useMemo, useEffect } from "react";
 import "./Payment.css";
 import { supabase } from "../components/supabaseClient";
 import { processPayment } from "../Services/PaymentService";
+import { FiUser, FiMail, FiPhone, FiMapPin, FiHash, FiMessageSquare } from "react-icons/fi";
 import Header from "../components/SampleHeader";
 
 const MONTHS = [
@@ -248,7 +249,7 @@ export default function Payment() {
 
       // 🔒 We confirm insert with .select() and add retry logic
       let bookingInserted = false;
-      
+
 
       for (let attempt = 0; attempt < 2 && !bookingInserted; attempt++) {
         const { data, error } = await supabase
@@ -350,37 +351,58 @@ export default function Payment() {
 
         <div className="main-row">
           <div className="left">
-            <input
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              placeholder="First name *"
-            />
-            <input value={email} disabled />
-            <input
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              placeholder="Phone *"
-            />
-            <input
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-              placeholder="Address *"
-            />
-            <input
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-              placeholder="City *"
-            />
-            <input
-              value={zip}
-              onChange={(e) => setZip(e.target.value)}
-              placeholder="Zip *"
-            />
-            <textarea
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              placeholder="message"
-            />
+            <div className="input-group">
+              <FiUser className="input-icon" />
+              <input
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                placeholder="First name *"
+              />
+            </div>
+            <div className="input-group">
+              <FiMail className="input-icon" />
+              <input value={email} disabled />
+            </div>
+            <div className="input-group">
+              <FiPhone className="input-icon" />
+              <input
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder="Phone *"
+              />
+            </div>
+            <div className="input-group">
+              <FiMapPin className="input-icon" />
+              <input
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                placeholder="Address *"
+              />
+            </div>
+            <div className="input-group">
+              <FiMapPin className="input-icon" />
+              <input
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+                placeholder="City *"
+              />
+            </div>
+            <div className="input-group">
+              <FiHash className="input-icon" />
+              <input
+                value={zip}
+                onChange={(e) => setZip(e.target.value)}
+                placeholder="Zip *"
+              />
+            </div>
+            <div className="input-group textarea-group">
+              <FiMessageSquare className="input-icon" />
+              <textarea
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                placeholder="message"
+              />
+            </div>
           </div>
 
           <div className="right">
@@ -483,6 +505,21 @@ export default function Payment() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* MOBILE STICKY FOOTER */}
+      <div className="mobile-payment-footer">
+        <div className="mobile-footer-info">
+          <div className="footer-total">₹{totalAmount}</div>
+          <div className="footer-sub">Final Payment</div>
+        </div>
+        <button
+          className="mobile-primary-btn"
+          onClick={handlePlaceOrderAndPay}
+          disabled={!acceptPolicies || !agreeTerms || isPaying}
+        >
+          {isPaying ? "Processing..." : "Pay Now"}
+        </button>
       </div>
     </>
   );
