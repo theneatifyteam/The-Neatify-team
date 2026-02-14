@@ -85,11 +85,54 @@ h2 {
   border-radius: 10px;
 }
 
-.not-found {
+/* ==================== NOT FOUND STATE ==================== */
+.not-found-container {
   display: flex;
-  height: 100vh;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  padding: 40px 24px;
+  text-align: center;
+  background: #fff;
+}
+
+.not-found-icon {
+  font-size: 80px;
+  margin-bottom: 24px;
+}
+
+.not-found-container h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+.not-found-container p {
+  font-size: 16px;
+  color: #6b7280;
+  max-width: 400px;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.back-btn {
+  background: #f4c430;
+  color: #000;
+  border: none;
+  padding: 14px 40px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(244, 196, 48, 0.3);
+}
+
+.back-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(244, 196, 48, 0.4);
 }
 
 /* ==================== MODALS ==================== */
@@ -195,20 +238,27 @@ h2 {
 /* BOOK NOW BUTTON */
 .actions .primary {
   flex: 1;
-  /* ✅ SAME WIDTH */
-  height: 44px;
-  /* ✅ SAME HEIGHT */
+  height: 54px;
   background-color: #f4c430;
   color: #000;
   border: none;
-  font-weight: 600;
+  font-weight: 800;
   cursor: pointer;
-  font-size: 13px;
-  border-radius: 6px;
+  font-size: 17px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(244, 196, 48, 0.4);
+  transition: all 0.25s ease;
+  margin: 10px 0;
 }
 
 .actions .primary:hover {
-  background-color: #e6b800;
+  background-color: #f5c518;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(244, 196, 48, 0.5);
+}
+
+.actions .primary:active {
+  transform: translateY(0);
 }
 
 /* ADD TO CART BUTTON — FIXED */
@@ -243,8 +293,9 @@ h2 {
 /* ==================== APPOINTMENT SUMMARY — PREMIUM ==================== */
 
 .modal-container {
-  border-radius: 24px;
-  padding: 32px 36px;
+  border-radius: 28px;
+  padding: 32px 28px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
 }
 
 /* TITLE */
@@ -252,93 +303,137 @@ h2 {
   font-size: 22px;
   font-weight: 800;
   margin-bottom: 24px;
+  color: #111827;
 }
 
 /* SERVICE ROW */
 .summary-item {
-  display: grid;
-  grid-template-columns: 1fr auto auto auto;
-  align-items: center;
-  gap: 16px;
-  padding: 14px 0;
-  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 0;
+  border-bottom: 1px solid #f3f4f6;
+  position: relative;
 }
 
-/* SERVICE NAME */
+/* Row 1: Name and Time */
 .summary-item .service-name {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
   color: #111827;
+  line-height: 1.3;
 }
 
-/* DURATION */
 .summary-item .service-time {
   font-size: 13px;
+  font-weight: 600;
   color: #6b7280;
-  min-width: 70px;
-  text-align: right;
+  background: #f9fafb;
+  padding: 4px 10px;
+  border-radius: 6px;
+  align-self: flex-start;
 }
 
-/* PRICE */
-.summary-item .service-price {
-  font-size: 16px;
-  font-weight: 700;
+/* Row 2: Price and Remove */
+.summary-price {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+.summary-item .offer-price {
+  font-size: 20px;
+  font-weight: 800;
   color: #111827;
-  min-width: 70px;
-  text-align: right;
 }
 
-/* REMOVE */
-.summary-item button {
-  background: none;
+.summary-item .mrp {
+  font-size: 14px;
+  color: #9ca3af;
+  text-decoration: line-through;
+}
+
+.summary-item .offer-badge {
+  font-size: 12px;
+  font-weight: 700;
+  color: #2e7d32;
+  background: #ecfdf5;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid #d1fae5;
+}
+
+.summary-item .remove-btn {
+  background: #fef2f2;
   border: none;
   color: #dc2626;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 700;
   cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 8px;
+  margin-left: auto;
+  transition: all 0.2s;
 }
 
-.summary-item button:hover {
-  text-decoration: underline;
+.summary-item .remove-btn:hover {
+  background: #fee2e2;
+  text-decoration: none;
 }
 
 /* ==================== ADD SERVICE BUTTON ==================== */
 
 .add-service-btn {
-  margin-top: 18px;
-  padding: 14px;
-  border-radius: 14px;
+  margin-top: 24px;
+  padding: 15px;
+  border-radius: 16px;
   border: 1.5px solid #111827;
   background: #fff;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
+  color: #111827;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .add-service-btn:hover {
-  background: #f9fafb;
-  transform: translateY(-1px);
+  background: #111827;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(17, 24, 39, 0.15);
 }
 
-/* ==================== SCHEDULE BUTTON (HERO CTA) ==================== */
+/* ==================== SCHEDULE BUTTON (CTA) ==================== */
 
 .schedule-btn {
-  margin-top: 14px;
-  padding: 16px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, #f4c430, #f7d046);
+  margin-top: 16px;
+  padding: 18px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #f4c430, #f8d448);
   border: none;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 800;
+  color: #000;
   cursor: pointer;
-  box-shadow: 0 14px 30px rgba(244, 196, 48, 0.5);
-  transition: all 0.25s ease;
+  box-shadow: 0 12px 30px rgba(244, 196, 48, 0.4);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .schedule-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 36px rgba(244, 196, 48, 0.6);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(244, 196, 48, 0.5);
+}
+
+.schedule-btn:active {
+  transform: translateY(-1px);
 }
 
 /* ==================== CLOSE BUTTON ==================== */
