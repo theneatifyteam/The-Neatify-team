@@ -280,6 +280,33 @@ export default function Booking() {
           </div>
         </div>
       </div>
+
+      {/* MOBILE STICKY FOOTER */}
+      <div className="mobile-booking-footer">
+        <div className="mobile-footer-info">
+          <div className="footer-total">₹{totalAmount}</div>
+          <div className="footer-sub">{totalDurationMinutes} mins • {selectedServices.length} Svc</div>
+        </div>
+        <button
+          className="mobile-next-btn"
+          disabled={!(selectedDate && selectedTime && selectedServices.length)}
+          onClick={() =>
+            navigate("/payment", {
+              state: {
+                services: selectedServices,
+                date: selectedDate,
+                time: selectedTime,
+                month,
+                year,
+                total: totalAmount,
+                duration: totalDurationMinutes,
+              },
+            })
+          }
+        >
+          Next
+        </button>
+      </div>
     </>
   );
 }
