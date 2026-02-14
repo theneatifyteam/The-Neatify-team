@@ -110,7 +110,7 @@ function AppLayout({ user }) {
         />
 
         <Route path="/services" element={<Services user={user} />} />
-        <Route path="/service/:id" element={<ServiceDetail />} />
+        <Route path="/service/:id" element={<ServiceDetail user={user} />} />
 
         <Route
           path="/profile"
