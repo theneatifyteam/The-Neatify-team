@@ -1,18 +1,52 @@
 import { useEffect, useMemo, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { supabase } from "../components/supabaseClient";
 import Header from "../components/SampleHeader";
+import PageLoader from "../components/PageLoader";
 import "./ServiceDetail.css";
 
-export default function ServiceDetail() {
+export default function ServiceDetail({ user }) {
   const { state } = useLocation();
+  const { id } = useParams();
   const navigate = useNavigate();
-  const service = state?.service;
+
+  const [fetchedService, setFetchedService] = useState(null);
+  const [isFetching, setIsFetching] = useState(!state?.service);
+  const [error, setError] = useState(null);
+
+  const service = state?.service || fetchedService;
+  const allServices = state?.allServices || [];
 
   const [showSummary, setShowSummary] = useState(false);
   const [showAddService, setShowAddService] = useState(false);
   const [addOns, setAddOns] = useState([]);
   const [selectedServices, setSelectedServices] = useState([]);
+
+  /* ================= FETCH SERVICE IF MISSING ================= */
+  useEffect(() => {
+    if (!state?.service && id) {
+      fetchServiceById(id);
+    }
+  }, [id, state?.service]);
+
+  async function fetchServiceById(serviceId) {
+    try {
+      setIsFetching(true);
+      const { data, error } = await supabase
+        .from("services")
+        .select("*")
+        .eq("id", serviceId)
+        .single();
+
+      if (error) throw error;
+      setFetchedService(data);
+    } catch (err) {
+      console.error("Error fetching service:", err);
+      setError(true);
+    } finally {
+      setIsFetching(false);
+    }
+  }
 
   /* ✅ DISABLE ADD-ONS FOR DEEP CLEANING */
   const isDeepCleaning =
@@ -26,7 +60,7 @@ export default function ServiceDetail() {
 
   /* ================= FETCH ADD ONS ================= */
   useEffect(() => {
-    if (isDeepCleaning) return;
+    if (isDeepCleaning || !service) return;
 
     supabase
       .from("add_ons")
@@ -37,7 +71,7 @@ export default function ServiceDetail() {
       .then(({ data }) => {
         if (data) setAddOns(data);
       });
-  }, [isDeepCleaning]);
+  }, [isDeepCleaning, service]);
 
   /* ================= INIT MAIN SERVICE ================= */
   useEffect(() => {
@@ -66,7 +100,6 @@ export default function ServiceDetail() {
       ...prev,
       {
         ...svc,
-        // ✅ FIX: normalize add-on duration ONCE
         duration: `${svc.duration} mins`,
       },
     ]);
@@ -96,11 +129,27 @@ export default function ServiceDetail() {
       .map((l) => l.trim());
   }, [service]);
 
-  if (!service) return <div>Service not found</div>;
+  if (isFetching) return <PageLoader />;
+
+  if (!service || error) {
+    return (
+      <>
+        <Header user={user} allServices={allServices} />
+        <div className="not-found-container">
+          <div className="not-found-icon">🏷️</div>
+          <h2>Service not found</h2>
+          <p>The service you're looking for might have been moved or is no longer available.</p>
+          <button className="back-btn" onClick={() => navigate("/services")}>
+            Back to Services
+          </button>
+        </div>
+      </>
+    );
+  }
 
   return (
     <>
-      <Header />
+      <Header user={user} allServices={allServices} />
 
       <div className="service-detail">
         <img src={service.image} alt={service.title} className="hero-img" />
