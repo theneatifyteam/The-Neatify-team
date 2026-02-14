@@ -314,6 +314,7 @@ footer .footer-content {
   /* brand yellow */
   border-radius: 3px;
 }
+
 /* ================= GO UP BUTTON – BELOW CARDS ================= */
 .services-go-up-wrapper {
   display: flex;
@@ -358,6 +359,7 @@ footer .footer-content {
     font-size: 14px;
   }
 }
+
 /* ================= MOBILE TABS FIX ================= */
 
 /* Container for tabs */
@@ -412,6 +414,7 @@ footer .footer-content {
   background: #f4c430;
   border-radius: 2px;
 }
+
 /* ================= FIX MOBILE TABS SCROLL ================= */
 
 .service-tabs,
@@ -437,4 +440,75 @@ footer .footer-content {
 .category-tab,
 .tab-item {
   flex: 0 0 auto;
+}
+
+/* ================= NO SERVICES STATE ================= */
+.no-services {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  text-align: center;
+}
+
+.no-services-icon {
+  font-size: 64px;
+  margin-bottom: 24px;
+  animation: bounce 2s infinite;
+}
+
+.no-services h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+.no-services p {
+  font-size: 16px;
+  color: #6b7280;
+  max-width: 320px;
+  margin-bottom: 32px;
+  line-height: 1.5;
+}
+
+.clear-search-btn {
+  background: #f4c430;
+  color: #000;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(244, 196, 48, 0.3);
+}
+
+.clear-search-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(244, 196, 48, 0.4);
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 640px) {
+  .no-services {
+    padding: 60px 20px;
+  }
+
+  .no-services-icon {
+    font-size: 48px;
+  }
 }
