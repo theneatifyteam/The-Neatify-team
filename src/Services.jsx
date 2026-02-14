@@ -13,7 +13,7 @@ export default function Services({ user }) {
   const navigate = useNavigate();
 
   const [services, setServices] = useState([]);
-  const [activeCategory, setActiveCategory] = useState(""); // ✅ important
+  const [activeCategory, setActiveCategory] = useState("BATHROOM"); // ✅ Start with Bathroom first <!-- id: 18 -->
   const [loading, setLoading] = useState(true);
   const [searchText, setSearchText] = useState("");
   const [error, setError] = useState(null);
@@ -111,30 +111,32 @@ export default function Services({ user }) {
         value: type,
       }));
 
-    // ALL stays last but won't open by default
+    // Bathroom first, All Services last
     return [...orderedTabs, ...remainingTabs, { label: "All Services", value: "ALL" }];
   }, [services]);
 
-  // ✅ STRONG FIX – Always open first real category (not ALL)
   useEffect(() => {
-    if (tabs.length > 0) {
-      const firstRealTab = tabs.find(tab => tab.value !== "ALL");
-      if (firstRealTab) {
-        setActiveCategory(firstRealTab.value);
-      }
+    if (searchText.trim().length > 0) {
+      setActiveCategory("ALL");
     }
-  }, [tabs]);
+  }, [searchText]);
 
   let filteredServices =
-    activeCategory === "ALL"
+    (activeCategory === "ALL" || searchText.trim().length > 0)
       ? services
       : services.filter(
-          (s) => (s.service_type || s.category) === activeCategory
-        );
+        (s) => (s.service_type || s.category) === activeCategory
+      );
 
-  filteredServices = filteredServices.filter((s) =>
-    s.title?.toLowerCase().includes(searchText.toLowerCase())
-  );
+  filteredServices = filteredServices.filter((s) => {
+    const input = searchText.toLowerCase().trim();
+    if (!input) return true;
+    return (
+      s.title?.toLowerCase().includes(input) ||
+      s.description?.toLowerCase().includes(input) ||
+      (s.service_type || s.category)?.toLowerCase().includes(input)
+    );
+  });
 
   const groupedServices = useMemo(() => {
     const grouped = {};
@@ -155,7 +157,7 @@ export default function Services({ user }) {
 
   return (
     <div className="page">
-      <Header searchText={searchText} setSearchText={setSearchText} user={user} />
+      <Header searchText={searchText} setSearchText={setSearchText} user={user} allServices={services} />
 
       {heroImages.length > 0 && (
         <div className="hero-container">
@@ -179,7 +181,10 @@ export default function Services({ user }) {
       <div id="services-section" style={{ scrollMarginTop: "90px" }}>
         <CategoryTabs
           activeTab={activeCategory}
-          onChange={setActiveCategory}
+          onChange={(cat) => {
+            setActiveCategory(cat);
+            setSearchText(""); // ✅ Clear search when switching tabs
+          }}
           tabs={tabs}
         />
 
@@ -188,7 +193,14 @@ export default function Services({ user }) {
         ) : error ? (
           <div className="error">{error}</div>
         ) : filteredServices.length === 0 ? (
-          <div className="no-services">No services found.</div>
+          <div className="no-services">
+            <div className="no-services-icon">🔍</div>
+            <h3>No services found</h3>
+            <p>We couldn't find any services matching "{searchText}". Try searching for something else or clear your search.</p>
+            <button className="clear-search-btn" onClick={() => setSearchText("")}>
+              Clear Search
+            </button>
+          </div>
         ) : (
           <>
             {Object.entries(groupedServices).map(([category, items]) => (
